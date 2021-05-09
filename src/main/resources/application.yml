@@ -1,0 +1,9 @@
+server:
+  port: 9081
+  #nginx 代理为 aoplog.com
+
+
+  #配置页面的路径
+spring:
+  thymeleaf: #需要引入thymeleaf 的pom依赖
+    prefix: classpath:/templates/user/
