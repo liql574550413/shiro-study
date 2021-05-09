@@ -81,4 +81,19 @@ public class ShiroController {
     public String unautho(){
         return "当前用户的行为，没有得到授权";
     }
+
+    //退出操作
+    @RequestMapping("/logout")
+    @ResponseBody
+    public String logout(){
+        Subject subject = SecurityUtils.getSubject();
+        if (subject.isAuthenticated()) {//判断当前是否处于登录状态
+            System.out.println("准备退出操作");
+            subject.logout();
+        }else{
+          return   "当前处于未登录状态,无需退出操作";
+        }
+      //  subject.logout();
+        return "退出成功";
+    }
 }
